@@ -1,0 +1,31 @@
+<mat-card  style="align-items: center;">
+  <mat-card-header>
+    <h2>{{'Add money'|translate}}</h2>
+    <button mat-icon-button type="button" (click)="showPaymentMethodTip()">
+      <mat-icon>help_outline</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <mat-label>лв</mat-label>
+      <input type="number" id="amount"matInput name="money" [(ngModel)]="amount" required>
+    </mat-form-field>
+      <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>{{'Choose a payment method'|translate}}</mat-label>
+       <mat-select [(ngModel)]="selectedPaymentMethod" name="paymentMethod" aria-required="true">
+      <mat-option value="CreditOrDebitCard">{{'Debit Card'|translate}}</mat-option>
+      <mat-option value="GooglePay">{{'Google Pay'|translate}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+
+   
+
+    <div>
+      <button mat-raised-button color="primary" (click)="onSubmit()">{{'Submit'|translate}}</button>
+    </div>
+
+    
+
+  </mat-card-content>
+</mat-card>

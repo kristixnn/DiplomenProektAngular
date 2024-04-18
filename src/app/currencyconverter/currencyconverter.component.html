@@ -1,0 +1,27 @@
+<!-- currency-converter.component.html -->
+<mat-card style="display: flex; justify-content: center; align-items: center;">
+  <mat-card-title>{{'Currency Converter'|translate}}</mat-card-title>
+  <mat-card-content>
+    <label for="amount">{{'Amount'|translate}}:</label>
+    <input matInput type="number" [(ngModel)]="amount" name="amount" />
+    <br>
+
+    <mat-select [(ngModel)]="baseCurrency" name="baseCurrency" (ngModelChange)="getExchangeRates()">
+      <mat-option *ngFor="let currency of exchangeRates?.rates | keyvalue" [value]="currency.key">
+        {{ currency.key }}
+      </mat-option>
+    </mat-select>
+    <br>
+    
+    <mat-select [(ngModel)]="targetCurrency" name="targetCurrency" (ngModelChange)="convert()">
+      <mat-option *ngFor="let currency of targetCurrencies" [value]="currency">
+        {{ currency }}
+      </mat-option>
+    </mat-select>
+    <br>
+
+    <div *ngIf="exchangeRates">
+      <p>{{ amount }} {{ baseCurrency }} = {{ result | number: '1.2-2' }} {{ targetCurrency }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>

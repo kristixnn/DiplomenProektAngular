@@ -1,0 +1,27 @@
+<div style="text-align: center;" >
+  <h1 mat-typography matHeadline>{{'Welcome' | translate }}, {{id }}</h1>
+  <h1 mat-typography matHeadline>{{'Balance' | translate}}: BGN {{ balance }}</h1>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <mat-card style="margin-bottom: 40px;">
+    <h1 mat-typography matHeadline>{{'Add money' | translate}}</h1>
+    <button mat-raised-button color="primary" style="margin-bottom: 10px;" (click)="redirectToAddMoneyPage()">+</button>
+    <h1 mat-typography matHeadline>{{'Transfer money'|translate}}</h1>
+    <button mat-raised-button color="primary" (click)="redirectToMoneyTransferPage()">⇌</button>
+  </mat-card>
+
+  <mat-card style="margin-bottom: 40px;">
+    <h1 mat-typography matHeadline>{{'Check stocks' | translate}}</h1>
+    <button mat-raised-button color="primary" style="margin-bottom: 10px;" (click)="redirectToStockPage()">$</button>
+    <h1 mat-typography matHeadline>{{'Trade'|translate}}</h1> 
+    <button mat-raised-button color="primary" (click)="redirectToTradePage()">//</button>
+  </mat-card>
+
+  <mat-card style="margin-bottom: 40px;">
+    <h1 mat-typography matHeadline>{{'Track your expenses'|translate}}</h1>
+    <button mat-raised-button color="primary" style="margin-bottom: 10px;" (click)="redirectToExpenseTracker()">|||</button>
+    <h1 mat-typography matHeadline>{{'Currency converter' | translate}}</h1>
+    <button mat-raised-button color="primary" (click)="redirectToCurrencyConverter()">⇌</button>
+  </mat-card>
+</div>

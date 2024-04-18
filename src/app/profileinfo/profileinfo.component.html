@@ -1,0 +1,16 @@
+<mat-card *ngFor="let user of userlist" class="user-card" style="align-items: center;">
+    <mat-card-header>
+    
+      <mat-card-title>{{ user.id }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>{{'Name'|translate}}:</strong> {{ user.name }}</p>
+      <p><strong>{{'Email'|translate}}:</strong> {{ user.email }}</p>
+      <p><strong>{{'Status'|translate}}:</strong> {{ user.isactive ? 'Active' : 'Inactive' }}</p>
+      <p><strong>{{'Balance'|translate}}:</strong> {{ user.balance }}</p>
+      <p><strong>{{'Role'|translate}}:</strong> {{ user.role || 'Unassigned' }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="updateuser(user.id)">{{'Change data'|translate}}</button>
+    </mat-card-actions>
+  </mat-card>

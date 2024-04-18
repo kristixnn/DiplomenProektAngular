@@ -1,0 +1,45 @@
+<mat-card style="display: flex; justify-content: center; align-items: center;">
+    <mat-card-header>
+        <h2 style="display: flex; gap: 10px;">{{'Registration'|translate}}</h2>
+        <div style="display: flex; gap: 10px;"> <!-- Added flex container with gap -->
+        <button mat-raised-button color="primary" (click)="switchLanguage('en')">EN</button>
+        <button mat-raised-button color="primary" (click)="switchLanguage('bg')">BG</button>
+        <button mat-icon-button type="button" (click)="showPasswordPattern()">
+          <mat-icon>help_outline</mat-icon>
+        </button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="registerform" (ngSubmit)="proceedregister()">
+            <mat-form-field class="example-full-width">
+              <mat-label>{{'Username'|translate}}</mat-label>
+              <input matInput formControlName="id" >
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>{{'Name'|translate}}</mat-label>
+                <input matInput formControlName="name" >
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{'Password'|translate}}</mat-label>
+                <input type="password" matInput formControlName="password" >
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{'Email'|translate}}</mat-label>
+                <input matInput formControlName="email" >
+              </mat-form-field>
+              <br>
+              <mat-radio-group formControlName="gender" aria-label="Select an option">
+                <mat-radio-button value="male">{{'Male'|translate}}</mat-radio-button>
+                <mat-radio-button value="female">{{'Female'|translate}}</mat-radio-button>
+              </mat-radio-group>
+              <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                <button mat-raised-button color="primary">{{'Submit'|translate}}</button>
+                <a routerLink="/login" mat-raised-button color="accent">{{'Back to Login'|translate}}</a>
+              </div>
+          </form>
+    </mat-card-content>
+  </mat-card>
+

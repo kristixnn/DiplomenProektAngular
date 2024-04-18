@@ -1,0 +1,39 @@
+<mat-card *ngIf="stockData">
+  <mat-card-header>
+    <mat-card-title style="display: flex; justify-content: center; align-items: center;">{{'Top Gainers and Losers'|translate}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <h2 style="display: flex; justify-content: center; align-items: center;">{{'Most Actively Traded'|translate}}</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div *ngFor="let item of stockData['most_actively_traded']" style="flex: 1; margin: 10px;">
+        <h4>{{item.ticker}}</h4>
+        <p>{{'Price'|translate}}: {{item.price}}</p>
+        <p>{{'Change Amount'|translate}}: {{item.change_amount}}</p>
+        <p>{{'Change Percentage'|translate}}: {{item.change_percentage}}</p>
+        <p>{{'Volume'|translate}}: {{item.volume}}</p>
+      </div>
+    </div>
+
+    <h2 style="display: flex; justify-content: center; align-items: center;">{{'Top Gainers'|translate}}</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div *ngFor="let item of stockData['top_gainers']" style="flex: 1; margin: 10px;">
+        <h4>{{item.ticker}}</h4>
+        <p>{{'Price'|translate}}: {{item.price}}</p>
+        <p>{{'Change Amount'|translate}}: {{item.change_amount}}</p>
+        <p>{{'Change Percentage'|translate}}: {{item.change_percentage}}</p>
+        <p>{{'Volume'|translate}}: {{item.volume}}</p>
+      </div>
+    </div>
+
+    <h2 style="display: flex; justify-content: center; align-items: center;">{{'Top Losers'|translate}}</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div *ngFor="let item of stockData['top_losers']" style="flex: 1; margin: 10px;">
+        <h4>{{item.ticker}}</h4>
+        <p>{{'Price'|translate}}: {{item.price}}</p>
+        <p>{{'Change Amount'|translate}}: {{item.change_amount}}</p>
+        <p>{{'Change Percentage'|translate}}: {{item.change_percentage}}</p>
+        <p>{{'Volume'|translate}}: {{item.volume}}</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

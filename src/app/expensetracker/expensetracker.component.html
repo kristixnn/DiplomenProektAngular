@@ -1,0 +1,72 @@
+<!-- expense-tracker.component.html -->
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{'Expense List'|translate}}</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <div>
+        <label>{{'Filter by Date'|translate}}:</label>
+        <input type="date" [(ngModel)]="filterDate" (change)="applyDateFilter()" />
+      </div>
+  
+      <ul *ngIf="!editMode">
+        <li *ngFor="let expense of expenses">
+          <!-- Check if the expense belongs to the logged-in user -->
+          <ng-container *ngIf="expense.userId === authService.getUsersIdForExpenses()">
+            {{ expense.description }} - {{ expense.amount | currency: 'BGN':'symbol':'1.2-2' }}
+            ({{ expense.date | date: 'dd/MM/yy' }})
+            <button mat-button color="primary" (click)="editExpense(expense)">{{ 'Edit' | translate }}</button>
+            <button mat-button color="warn" (click)="deleteExpense(expense)">{{ 'Delete' | translate }}</button>
+          </ng-container>
+        </li>
+      </ul>
+  
+      <!-- Display the edit form when in edit mode -->
+      <div *ngIf="editMode">
+        <h3>{{'Edit Expense'|translate}}</h3>
+        <form>
+          <mat-form-field>
+            <input matInput placeholder="Description" [(ngModel)]="editingExpense.description" name="description" required />
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input matInput placeholder="Amount" [(ngModel)]="editingExpense.amount" name="amount" type="number" required />
+          </mat-form-field>
+    
+          <mat-form-field>
+            <input matInput placeholder="Date" [(ngModel)]="editingExpense.date" name="date" type="date" required />
+          </mat-form-field>
+    
+          <button mat-raised-button color="primary" (click)="saveEdit()">{{'Save'|translate}}</button>
+          <button mat-raised-button color="warn" (click)="cancelEdit()">{{'Cancel'|translate}}</button>
+        </form>
+      </div>
+  
+      <div>
+        <h3>{{'Total Expenses'|translate}}: {{ calculateTotalExpenses() | currency:'BGN':'symbol':'1.2-2' }}</h3>
+        <h3>{{'Average Expense'|translate}}: {{ calculateAverageExpense() | currency:'BGN':'symbol':'1.2-2' }}</h3>
+      </div>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <mat-card-title>{{'Add Expense'|translate}}</mat-card-title>
+      <form (submit)="addExpense()">
+        <mat-form-field>
+          <input matInput placeholder="Description" [(ngModel)]="newExpense.description" name="description" required />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Amount" [(ngModel)]="newExpense.amount" name="amount" type="number" required />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Date" [(ngModel)]="newExpense.date" name="date" type="date" required />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">{{'Add Expense'|translate}}</button>
+      </form>
+    </mat-card-actions>
+  </mat-card>
+  

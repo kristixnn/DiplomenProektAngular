@@ -1,0 +1,16 @@
+
+
+<mat-card class="mat-card-container">
+  <mat-card-header>
+    <mat-card-title>{{'Confirm payment'|translate}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{'Amount to pay'|translate}}: {{ amount }}</p>
+    <google-pay-button environment="TEST" buttonType="buy" buttonColor="black" [paymentRequest]="paymentRequest"
+      (loadpaymentdata)="onLoadPaymentData($event)" (error)="onError($event)"
+      [paymentAuthorizedCallback]="onPaymentDataAuthorized">
+    </google-pay-button>
+   
+  </mat-card-content>
+</mat-card>

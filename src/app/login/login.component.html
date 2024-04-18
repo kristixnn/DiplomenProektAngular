@@ -1,0 +1,31 @@
+<mat-card style="display: flex; justify-content: center; align-items: center;">
+    <mat-card-header>
+
+        <h2 style="display: flex; gap: 10px;">{{'User Login'|translate}}</h2>
+       
+        <div style="display: flex; gap: 10px;"> <!-- Added flex container with gap -->
+          <button mat-raised-button color="primary" (click)="switchLanguage('en')">EN</button>
+          <button mat-raised-button color="primary" (click)="switchLanguage('bg')">BG</button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="loginform" (ngSubmit)="proceedlogin()">
+            <mat-form-field class="example-full-width">
+              <mat-label>{{'Username'|translate}}</mat-label>
+              <input matInput formControlName="id" >
+            </mat-form-field>
+            <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{'Password'|translate}}</mat-label>
+                <input matInput type="password" formControlName="password" >
+              </mat-form-field>
+            
+              <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <!-- Added gap between buttons -->
+                <button mat-raised-button color="primary">{{ 'Login' | translate }}</button>
+                <a routerLink="/register" mat-raised-button color="accent">{{ 'New User?' | translate }}</a>
+              </div>
+              
+          </form>
+    </mat-card-content>
+  </mat-card>
+

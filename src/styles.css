@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Dark Theme Styles */
+/* styles.css or theme-dark.css */
+
+.dark-theme {
+    background-color: #121212; /* Dark background color */
+    color: #ffffff; /* White text color */
+    
+    /* Target specific elements within dark theme */
+    mat-card, mat-table, table {
+      background-color: #121212; /* Dark background color */
+      color: #ffffff; /* White text color */
+    }
+  
+    mat-card-content {
+      background-color: #121212; /* Dark background color */
+      color: #ffffff; /* White text color */
+    }
+  
+    /* Example: Target text color within specific elements */
+    mat-card h2,
+    mat-table th,
+    
+    mat-table td {
+      color: #ffffff; /* White text color */
+    }
+  
+    mat-paginator {
+      background-color: #121212; /* Dark background color */
+      color: #ffffff; /* White text color */
+    }
+    mat-form-field {
+        background-color: #121212; /* Dark background color */
+        color: #ffffff; /* White text color */
+      }
+      mat-label {
+        background-color: #121212; /* Dark background color */
+        color: #ffffff; /* White text color */
+      }
+
+       mat-dialog-title h1{
+        background-color: #121212;
+        color: #ffffff;
+      }
+  }
