@@ -3,6 +3,6 @@ https://diplomenproektcard.web.app
 
 Администраторски акаунт за тестване:
 
-Потребителско име: test
+Потребителско име: UserNew
 
-Парола: Test12345!@
+Парола: Qwerty123!@#
